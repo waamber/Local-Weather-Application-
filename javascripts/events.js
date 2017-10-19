@@ -8,6 +8,7 @@ const searchBtn = () => {
     let zip = searchText;
     weather.currentWeather(zip);
     console.log(zip);
+    $('#forecastBtn').removeClass('hidden');
   });
 };
 
@@ -18,9 +19,30 @@ const pressEnter = () => {
       let zip = searchText;
       weather.currentWeather(zip);
       console.log(zip);
+      $('#forecastBtn').removeClass('hidden');
     }
   });
 };
 
+const fiveDayBtn = () => {
+  $('#five').click((e) => {
+    let searchText = $('#search-bar').val();
+    let zip = searchText;
+    weather.fiveDayForecast(zip);
+    // console.log(zip);
+    // console.log(e);
+  });
+};
 
-module.exports = { searchBtn, pressEnter };
+const threeDayBtn = () => {
+  // // $('#five').click((e) => {
+  // //   let searchText = $('#search-bar').val();
+  // //   let zip = searchText;
+  // //   weather.fiveDayForecast(zip);
+  // //   // console.log(zip);
+  // //   // console.log(e);
+  // });
+};
+
+
+module.exports = { searchBtn, pressEnter, fiveDayBtn, threeDayBtn };
