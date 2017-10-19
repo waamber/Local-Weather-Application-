@@ -9,7 +9,7 @@ const currentWeather = (zip) => {
   return new Promise((resolve, reject) => {
     $.ajax(`http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&APPID=${weatherKey}&units=imperial`
     ).done((data) => {
-      resolve(data.main.temp, data.main.pressure, data.name, data.wind.speed, data.weather[0].main);
+      resolve(data);
       let weather = {
         name: data.name,
         temp: data.main.temp,
@@ -33,17 +33,22 @@ const fiveDayForecast = (zip) => {
       let forecast = data.list;
       for (var i = 0; i < forecast.length; i++) {
         if (i % 7 === 0 && i > 0) {
-          console.log('future 5', forecast[i].dt_txt);
+          let weather = {
+            date: forecast[i].dt_txt,
+            temp: forecast[i].main.temp,
+            air_pressure: forecast[i].main.pressure,
+            wind_speed: forecast[i].wind.speed,
+            condition: forecast[i].weather[0].main
+          };
+          fiveForecast.push(weather);
+          showResults(fiveForecast);
         }
       }
-      console.log('5 day', data.list);
-      // showResults(current);
     }).fail((error) => {
       reject(error);
     });
   });
 };
-
 
 const setKey = (key) => {
   weatherKey = key;
