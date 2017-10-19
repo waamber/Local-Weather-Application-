@@ -7,6 +7,7 @@ const events = require('./events');
 events.searchBtn();
 events.pressEnter();
 api.retrieveKeys();
+events.fiveDayBtn();
 
 // $(document).click(() => {
 //   weather.currentWeather(37206);
