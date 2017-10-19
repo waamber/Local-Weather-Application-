@@ -6,7 +6,15 @@ body {
   display: none;
 }
 
+#weather-container {
+  margin: 40px;
+  padding: 15px;
+}
+
 .weather-card {
   border: 2px solid black;
+  border-radius: 5px;
   margin: 5px;
+  width: 350px;
+  height: 350px;
 }
