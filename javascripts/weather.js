@@ -19,7 +19,6 @@ const currentWeather = (zip) => {
         condition: data.weather[0].main,
       };
       current.push(weather);
-      console.log(weather);
       showResults(current);
     }).fail((error) => {
       reject(error);
@@ -34,19 +33,17 @@ const fiveDayForecast = (zip) => {
       console.log('data', data);
       resolve(data.list);
       let forecast = data.list;
-      for (var i = 0; i < forecast.length; i++) {
-        if (i % 13 === 0 && i > 0) {
-          let weather = {
-            date: forecast[i].dt_txt,
-            temp: forecast[i].main.temp,
-            air_pressure: forecast[i].main.pressure,
-            wind_speed: forecast[i].wind.speed,
-            condition: forecast[i].weather[0].main,
-          };
-          fiveForecast.push(weather);
-          appendResults(fiveForecast);
-        }
+      for (var i = 2; i < forecast.length; i += 8) {
+        let weather = {
+          date: forecast[i].dt_txt,
+          temp: forecast[i].main.temp,
+          air_pressure: forecast[i].main.pressure,
+          wind_speed: forecast[i].wind.speed,
+          condition: forecast[i].weather[0].main,
+        };
+        fiveForecast.push(weather);
       }
+      appendResults(fiveForecast);
     }).fail((error) => {
       reject(error);
     });
@@ -59,19 +56,17 @@ const threeDayForecast = (zip) => {
     ).done((data) => {
       resolve(data.list);
       let forecast = data.list;
-      for (var i = 0; i < forecast.length; i++) {
-        if (i % 7 === 0 && i > 0 && i < 22) {
-          let weather = {
-            date: forecast[i].dt_txt,
-            temp: forecast[i].main.temp,
-            air_pressure: forecast[i].main.pressure,
-            wind_speed: forecast[i].wind.speed,
-            condition: forecast[i].weather[0].main,
-          };
-          threeForecast.push(weather);
-          appendResults(threeForecast);
-        }
+      for (var i = 2; i < 26; i += 8) {
+        let weather = {
+          temp: forecast[i].main.temp,
+          air_pressure: forecast[i].main.pressure,
+          wind_speed: forecast[i].wind.speed,
+          condition: forecast[i].weather[0].main,
+          date: forecast[i].dt_txt
+        };
+        threeForecast.push(weather);
       }
+      appendResults(threeForecast);
     }).fail((error) => {
       reject(error);
     });
