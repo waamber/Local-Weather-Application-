@@ -17,9 +17,9 @@ const currentWeather = (zip) => {
         air_pressure: data.main.pressure,
         wind_speed: data.wind.speed,
         condition: data.weather[0].main,
-        icon: data.cod
       };
       current.push(weather);
+      console.log(weather);
       showResults(current);
     }).fail((error) => {
       reject(error);
@@ -35,14 +35,13 @@ const fiveDayForecast = (zip) => {
       resolve(data.list);
       let forecast = data.list;
       for (var i = 0; i < forecast.length; i++) {
-        if (i % 7 === 0 && i > 0) {
+        if (i % 13 === 0 && i > 0) {
           let weather = {
             date: forecast[i].dt_txt,
             temp: forecast[i].main.temp,
             air_pressure: forecast[i].main.pressure,
             wind_speed: forecast[i].wind.speed,
             condition: forecast[i].weather[0].main,
-            icon: forecast[i].cod
           };
           fiveForecast.push(weather);
           appendResults(fiveForecast);
@@ -68,7 +67,6 @@ const threeDayForecast = (zip) => {
             air_pressure: forecast[i].main.pressure,
             wind_speed: forecast[i].wind.speed,
             condition: forecast[i].weather[0].main,
-            icon: forecast[i].cod
           };
           threeForecast.push(weather);
           appendResults(threeForecast);
