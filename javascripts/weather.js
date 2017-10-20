@@ -56,13 +56,16 @@ const threeDayForecast = (zip) => {
     ).done((data) => {
       resolve(data.list);
       let forecast = data.list;
+      console.log(forecast);
+
       for (var i = 2; i < 26; i += 8) {
+
         let weather = {
           temp: forecast[i].main.temp,
           air_pressure: forecast[i].main.pressure,
           wind_speed: forecast[i].wind.speed,
           condition: forecast[i].weather[0].main,
-          date: forecast[i].dt_txt
+          date: convertTime(forecast[i].dt)
         };
         threeForecast.push(weather);
       }
@@ -95,6 +98,16 @@ const showResults = (weatherArray) => {
 
 const appendResults = (weatherArray) => {
   dom.domString(weatherArray, weatherIcons);
+};
+
+const convertTime = (timestamp) => {
+  var a = new Date(timestamp * 1000);
+  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var year = a.getFullYear();
+  var month = months[a.getMonth()];
+  var date = a.getDate();
+  var time = date + ' ' + month + ' ' + year;
+  return time;
 };
 
 module.exports = { setKey, currentWeather, fiveDayForecast, threeDayForecast, icons };
