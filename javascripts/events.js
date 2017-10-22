@@ -32,6 +32,7 @@ const fiveDayBtn = () => {
     let zip = searchText;
     validate(zip);
     weather.fiveDayForecast(zip);
+    $('#forecastBtn').addClass('hidden');
   });
 };
 
@@ -41,12 +42,12 @@ const threeDayBtn = () => {
     let zip = searchText;
     validate(zip);
     weather.threeDayForecast(zip);
+    $('#forecastBtn').addClass('hidden');
   });
 };
 
 const validate = (zip) => {
   if ($.isNumeric(zip) && zip.length === 5) {
-    console.log('zip length', zip.length);
   } else {
     window.alert('Please enter 5-digit zipcode');
   }
