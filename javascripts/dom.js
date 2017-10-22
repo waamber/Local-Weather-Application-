@@ -14,8 +14,8 @@ const domString = (weatherArray, icons) => {
     domString += `<img src="${icons[weatherArray[i].condition]}">`;
     domString += `</div>`;
     domString += `<h2>${weatherArray[i].temp}&deg;F</h2>`;
-    domString += `<p>Air Pressure: ${weatherArray[i].air_pressure}hPa</p>`;
-    domString += `<p>Wind Speed: ${weatherArray[i].wind_speed}mph</p>`;
+    domString += `<p>Air Pressure: ${weatherArray[i].air_pressure} hPa</p>`;
+    domString += `<p>Wind Speed: ${weatherArray[i].wind_speed} mph</p>`;
     domString += `<p>Condition: ${weatherArray[i].condition}</p>`;
     domString += `</div>`;
   }
@@ -29,5 +29,6 @@ const printToDom = (dom) => {
 const clearDom = () => {
   $('#weather-container').empty();
 };
+
 
 module.exports = { domString, clearDom };

@@ -10,6 +10,7 @@ const searchBtn = () => {
     console.log(zip);
     $('#forecastBtn').removeClass('hidden');
     $('#current').removeClass('hidden');
+    $('.resetBtn').removeClass('hidden');
   });
 };
 
@@ -22,6 +23,7 @@ const pressEnter = () => {
       weather.currentWeather(zip);
       $('#forecastBtn').removeClass('hidden');
       $('#current').removeClass('hidden');
+      $('.resetBtn').removeClass('hidden');
     }
   });
 };
@@ -33,6 +35,7 @@ const fiveDayBtn = () => {
     validate(zip);
     weather.fiveDayForecast(zip);
     $('#forecastBtn').addClass('hidden');
+    $('.resetBtn').removeClass('hidden');
   });
 };
 
@@ -43,6 +46,7 @@ const threeDayBtn = () => {
     validate(zip);
     weather.threeDayForecast(zip);
     $('#forecastBtn').addClass('hidden');
+    $('#reset').removeClass('hidden');
   });
 };
 

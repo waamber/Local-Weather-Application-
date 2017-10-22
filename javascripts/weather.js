@@ -13,9 +13,9 @@ const currentWeather = (zip) => {
       resolve(data);
       let weather = {
         name: data.name,
-        temp: data.main.temp,
-        air_pressure: data.main.pressure,
-        wind_speed: data.wind.speed,
+        temp: Math.round(data.main.temp),
+        air_pressure: Math.round(data.main.pressure),
+        wind_speed: Math.round(data.wind.speed),
         condition: data.weather[0].main,
       };
       current.push(weather);
@@ -35,9 +35,9 @@ const fiveDayForecast = (zip) => {
       for (let i = 3; i < forecast.length; i += 8) {
         let weather = {
           date: convertTime(forecast[i].dt),
-          temp: forecast[i].main.temp,
-          air_pressure: forecast[i].main.pressure,
-          wind_speed: forecast[i].wind.speed,
+          temp: Math.round(forecast[i].main.temp),
+          air_pressure: Math.round(forecast[i].main.pressure),
+          wind_speed: Math.round(forecast[i].wind.speed),
           condition: forecast[i].weather[0].main,
         };
         fiveForecast.push(weather);
@@ -57,9 +57,9 @@ const threeDayForecast = (zip) => {
       let forecast = data.list;
       for (let i = 2; i < 26; i += 8) {
         let weather = {
-          temp: forecast[i].main.temp,
-          air_pressure: forecast[i].main.pressure,
-          wind_speed: forecast[i].wind.speed,
+          temp: Math.round(forecast[i].main.temp),
+          air_pressure: Math.round(forecast[i].main.pressure),
+          wind_speed: Math.round(forecast[i].wind.speed),
           condition: forecast[i].weather[0].main,
           date: convertTime(forecast[i].dt)
         };

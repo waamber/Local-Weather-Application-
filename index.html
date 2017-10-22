@@ -12,16 +12,25 @@
 </head>
 
 <body>
-  <div class="header">
-    <h1>WEATHER</h1>
-    <h4>NOW</h4>
-    <div class="input-group col-lg-3 col-lg-offset-8">
-      <input id="search-bar" type="text" class="form-control" placeholder="Enter ZIP">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button" id="searchBtn">Search</button>
-      </span>
+
+
+  <nav class="navbar navbar-default">
+    <div class="navbar-brand">
+      <h1>WEATHER</h1>
+      <h4>NOW</h4>
     </div>
-  </div>
+    <div class="collapse navbar-collapse">
+      <form class="navbar-form navbar-right">
+        <div class="input-group">
+          <input id="search-bar" type="text" class="form-control" placeholder="Enter ZIP">
+          <span class="input-group-btn">
+              <button class="btn btn-default" type="button" id="searchBtn">Search</button>
+            </span>
+        </div>
+      </form>
+    </div>
+  </nav>
+
 
   <div id="weather-container"></div>
 
@@ -29,7 +38,6 @@
     <button id="three" type="button" class="btn btn-default">3 Day</button>
     <button id="five" type="button" class="btn btn-default">5 Day</button>
   </div>
-
 
   <script type="text/javascript" src="./lib/node_modules/jquery/dist/jquery.js"></script>
   <script type="text/javascript" src="./lib/node_modules/bootstrap/dist/js/bootstrap.js"></script>
