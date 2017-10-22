@@ -30,12 +30,11 @@ const fiveDayForecast = (zip) => {
   return new Promise((resolve, reject) => {
     $.ajax(`http://api.openweathermap.org/data/2.5/forecast?zip=${zip},us&APPID=${weatherKey}&units=imperial`
     ).done((data) => {
-      console.log('data', data);
       resolve(data.list);
       let forecast = data.list;
-      for (var i = 2; i < forecast.length; i += 8) {
+      for (let i = 3; i < forecast.length; i += 8) {
         let weather = {
-          date: forecast[i].dt_txt,
+          date: convertTime(forecast[i].dt),
           temp: forecast[i].main.temp,
           air_pressure: forecast[i].main.pressure,
           wind_speed: forecast[i].wind.speed,
@@ -56,10 +55,7 @@ const threeDayForecast = (zip) => {
     ).done((data) => {
       resolve(data.list);
       let forecast = data.list;
-      console.log(forecast);
-
-      for (var i = 2; i < 26; i += 8) {
-
+      for (let i = 2; i < 26; i += 8) {
         let weather = {
           temp: forecast[i].main.temp,
           air_pressure: forecast[i].main.pressure,
@@ -101,12 +97,11 @@ const appendResults = (weatherArray) => {
 };
 
 const convertTime = (timestamp) => {
-  var a = new Date(timestamp * 1000);
-  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  var year = a.getFullYear();
-  var month = months[a.getMonth()];
-  var date = a.getDate();
-  var time = date + ' ' + month + ' ' + year;
+  let a = new Date(timestamp * 1000);
+  let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  let month = months[a.getMonth()];
+  let date = a.getDate();
+  let time = date + ' ' + month;
   return time;
 };
 
