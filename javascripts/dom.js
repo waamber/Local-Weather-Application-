@@ -30,5 +30,4 @@ const clearDom = () => {
   $('#weather-container').empty();
 };
 
-
 module.exports = { domString, clearDom };

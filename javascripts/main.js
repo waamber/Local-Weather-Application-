@@ -5,11 +5,11 @@ const weather = require('./weather');
 
 $(document).ready(function () {
   events.searchBtn();
-  events.pressEnter();
   api.retrieveKeys();
   events.fiveDayBtn();
   events.threeDayBtn();
   weather.icons();
+  events.pressEnter();
 });
 
 

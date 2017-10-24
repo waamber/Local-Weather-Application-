@@ -14,5 +14,6 @@ A basic application using the OpenWeatherApp API to display current weather cond
 Visit [OpenWeatherApp](https://openweathermap.org/api) for an API key. Once obtained, insert the key into the ```db/apiKey.example.json```.
 
 ```npm install```
+```grunt```
 
 Input US zipcode into the search bar, once the search button is clicked or by pressing Enter, your results should appear!
