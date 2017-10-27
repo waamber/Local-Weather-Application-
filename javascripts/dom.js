@@ -11,7 +11,7 @@ const domString = (weatherArray, icons) => {
       domString += `</div>`;
     }
     domString += `<div class="icon">`;
-    domString += `<img src="${icons[weatherArray[i].condition]}">`;
+    domString += `<img class="weather-icon"src="${icons[weatherArray[i].condition]}">`;
     domString += `</div>`;
     domString += `<h2>${weatherArray[i].temp}&deg;F</h2>`;
     domString += `<p>Air Pressure: ${weatherArray[i].air_pressure} hPa</p>`;

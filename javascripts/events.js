@@ -1,5 +1,6 @@
 'use strict';
 const weather = require('./weather');
+const firebaseApi = require('./firebaseApi');
 
 const searchBtn = () => {
   $('#searchBtn').click((e) => {
@@ -51,4 +52,26 @@ const validate = (zip) => {
   }
 };
 
-module.exports = { searchBtn, pressEnter, fiveDayBtn, threeDayBtn };
+const myLinks = () => {
+  $(document).click((e) => {
+    if (e.target.id === 'myWeather') {
+      $('#savedWeather').removeClass('hidden');
+      $('#authScreen').addClass('hidden');
+      // getMyMovies();
+    } else if (e.target.id === 'auth') {
+      $('#savedWeather').addClass('hidden');
+      $('#authScreen').removeClass('hidden');
+    }
+  });
+};
+
+const googleAuth = () => {
+  $('#googleBtn').click(() => {
+    firebaseApi.authenticateGoogle().then((result) => {
+    }).catch((error) => {
+      console.log('error in authentication', error);
+    });
+  });
+};
+
+module.exports = { searchBtn, pressEnter, fiveDayBtn, threeDayBtn, myLinks, googleAuth };

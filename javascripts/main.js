@@ -6,6 +6,8 @@ const weather = require('./weather');
 $(document).ready(function () {
   events.searchBtn();
   api.retrieveKeys();
+  events.myLinks();
+  events.googleAuth();
   events.fiveDayBtn();
   events.threeDayBtn();
   weather.icons();
