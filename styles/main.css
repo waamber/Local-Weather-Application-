@@ -44,7 +44,7 @@ body {
 .name {
   margin: 15px; }
 
-img {
+.weather-icon {
   width: 100px;
   height: 100px;
   margin-bottom: 15px; }
