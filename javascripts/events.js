@@ -9,6 +9,7 @@ const searchBtn = () => {
     weather.currentWeather(zip);
     $('#forecastBtn').removeClass('hidden');
     $('#current').removeClass('hidden');
+    $('#authScreen').addClass('hidden');
   });
 };
 
@@ -41,6 +42,7 @@ const pressEnter = () => {
       validate(zip);
       weather.currentWeather(zip);
       $('#forecastBtn').removeClass('hidden');
+      $('#authScreen').addClass('hidden');
     }
   });
 };
@@ -61,6 +63,8 @@ const myLinks = () => {
     } else if (e.target.id === 'auth') {
       $('#savedWeather').addClass('hidden');
       $('#authScreen').removeClass('hidden');
+      $('#weather-container').addClass('hidden');
+      $('#forecastBtn').addClass('hidden');
     }
   });
 };
@@ -73,5 +77,17 @@ const googleAuth = () => {
     });
   });
 };
+
+// const deleteWeather = () => {
+//   $('body').on('click', '.delete', (e) => {
+//     let weatherId = $(e.target).data('firebase-id');
+//     firebaseApi.deleteWeather(weatherId).then((results) => {
+//       // getMyMovies();
+//     }).catch((error) => {
+//       console.log(error);
+//     });
+//   });
+// };
+
 
 module.exports = { searchBtn, pressEnter, fiveDayBtn, threeDayBtn, myLinks, googleAuth };

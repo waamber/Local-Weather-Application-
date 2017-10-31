@@ -12,6 +12,7 @@ $(document).ready(function () {
   events.threeDayBtn();
   weather.icons();
   events.pressEnter();
+  events.deleteWeather();
 });
 
 

@@ -1,6 +1,28 @@
 {
-  "weather":{
-    "name": "Nashville",
-    "date": ""
+  "weather": {
+    "weather1": {
+      "name": "Nashville",
+      "date": "Oct 31",
+      "condition": "Cloudy",
+      "temp": "98",
+      "wind_speed": "15",
+      "air_pressure": "364"
+    },
+    "weather2": {
+      "name": "Nashville",
+      "date": "Oct 30",
+      "condition": "Windy",
+      "temp": "98",
+      "wind_speed": "15",
+      "air_pressure": "364"
+    },
+    "weather3": {
+      "name": "Nashville",
+      "date": "Oct 29",
+      "condition": "Cloudy",
+      "temp": "98",
+      "wind_speed": "15",
+      "air_pressure": "364"
+    }
   }
 }
