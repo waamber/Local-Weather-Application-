@@ -1,6 +1,6 @@
-# Weather Now
+# Weather Forecast App
 
-A basic application using the OpenWeatherApp API to display current weather conditions as well as well as the 3 and 5 day forecast based on the zipcode the user inputs.<br>
+A basic application using the OpenWeatherApp API to display current weather conditions as well as well as the 3 and 5 day forecast based on the zipcode by the user inputs.<br>
 #### Weather Conditions:
 
 * City Name
