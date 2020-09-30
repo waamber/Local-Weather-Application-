@@ -102,7 +102,7 @@ const convertTime = (timestamp) => {
   let month = months[a.getMonth()];
   let date = a.getDate();
   let time = date + ' ' + month;
-  return time;
+  return time
 };
 
 module.exports = { setKey, currentWeather, fiveDayForecast, threeDayForecast, icons };
